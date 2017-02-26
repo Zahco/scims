@@ -1,0 +1,11 @@
+.userarticles {
+  margin-top: var(--categories-height);
+  background-color: var(--background-color);
+}
+
+.userarticles article {
+  background-color: white;
+  padding: 5%;
+  width: 80%;
+  margin: 5% auto;
+}

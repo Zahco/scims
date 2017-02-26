@@ -1,0 +1,20 @@
+:root {
+  --header-height: 10vh;
+  --h-button-font-size: 3vh;
+  --h-button-padding: 3.5vh; /* (header-height - h-button-font-size) / 2 */
+  --body-height: 90vh; /* 100 - header-height */
+
+  --content-padding-height: 5vh;
+  --content-height: 80vh; /* 100 - (content-padding-height * 2) - header-height */
+  --content-padding-width: 5%;
+  --content-width: 90%; /* 100 - (content-padding-width * 2) */
+  --tumblr-color: #36465d;
+
+  --categories-height: 5vh;
+  --categories-li-height: 3vh;
+  --categories-li-padding-height: 1vh; /* (categories-height - categories-li-height) / 2 */
+
+  --subbody-margin-top: 10vh; /* categories-height + header-height */
+
+  --background-color: #DDD;
+}

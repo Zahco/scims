@@ -1,0 +1,20 @@
+.form {
+  text-align: center;
+}
+
+#signIn {
+  text-align: center;
+  padding-top: 2.5vh;
+  font-size: 0px;
+}
+
+#signIn > * {
+  font-size: 16px;
+  vertical-align: top;
+  margin: 0px 5%;
+  height: 40vh;
+}
+#separation {
+  border: solid #555 3px;
+  border-radius: 3px;
+}

@@ -1,0 +1,199 @@
+
+#articleEditor {
+  background-color: #F0F0F0;
+  height: 90vh;
+}
+
+#contenteditor{
+  height: 65vh;
+  overflow: auto;
+  text-align: left;
+  padding: 0.5%;
+  background-color: white;
+}
+
+.sectionSub{
+	border-left: red solid 1px;
+	padding-left: 10px;
+	text-indent: 2px;
+}
+/*valeurs magiques a suprimer*/
+
+#articleEditor p {
+  margin: 0px;
+}
+.articleinputs {
+  text-align: left;
+  margin-bottom: 1.5vh;
+  padding: 0px 1%;
+}
+.articleinputs > * {
+  display: inline-block;
+  vertical-align: middle;
+
+}
+.articleinputs input {
+  width: 95%;
+  padding: 0.5% 1%;
+  border: solid black 1px;
+}
+
+#articleEditor #submit:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+#articlefirstline > p {
+  width: 80%;
+}
+#articlesecondline > p:first-child {
+  width: 50%;
+}
+#articlesecondline > p:last-child {
+  float: right;
+  width: 15%;
+  text-align: center;
+}
+.articleinputs input[type="submit"] {
+  padding: 2%;
+}
+#editor {
+  text-align: left;
+  font-size: 0px;
+}
+#editor > * {
+  display: inline-block;
+  font-size: 16px;
+  vertical-align: top;
+}
+#contenteditor {
+  margin-left: 1%;
+  width: 91%;
+}
+#articleformat {
+  width: 7%;
+  font-size: 0px;
+}
+#articlesecondline img {
+  height: 30px;
+}
+#articleformat > * {
+  display: inline-block;
+  width: 20%;
+  margin: 2px 0px 2px calc(10.6666% - 2px);
+  padding: 7%;
+  vertical-align: top;
+  border: solid black 1px;
+}
+#articleformat > *:hover {
+  background-color: white;
+}
+#tagsDiv {
+  padding: 1%;
+  width: 98%;
+}
+#tagsDiv > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+#tagsDiv ul {
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+}
+#tagsDiv li {
+  padding: 0px;
+  display: inline-block;
+  border-bottom: solid black 1px;
+  margin-right: 5px;
+}
+#tagsDiv input {
+  width: 15%;
+}
+
+
+#articleEditor #tagsDiv .closeItemTag {
+  font-size: 8px;
+  color: gray;
+  vertical-align: super;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+#contenteditor div.closeItemLatex {
+  text-align: right;
+  color: gray;
+  cursor: pointer;
+  font-size: 12px;
+  display: block;
+}
+div.closeItemLatex {
+  display: none;
+}
+#contenteditor .latexCode {
+  color: gray;
+}
+#contenteditor .mathFormula {
+  border: solid gray;
+  border-width: 1px 0px;
+}
+/* http://www.w3schools.com/howto/howto_css_switch.asp */
+
+ /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

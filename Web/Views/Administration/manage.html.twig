@@ -1,0 +1,73 @@
+{% extends "_Layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Administration{% endblock %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+{% block content %}
+<div id="adminTables">
+<div id="userTable" class="pannelTable">
+    <h3> Gestion Utilisateurs </h3>
+    <table class="adminTable">
+        <tr>
+            <th>Pseudo</th>
+            <th>Email</th>
+            <th>Suppression</th>
+        </tr>
+
+    {% for user in Model.users %}
+      	<tr>
+            <td>{{ user.Pseudo }}</td>
+            <td>{{ user.Email }}</td>
+            <td> <a href="{{ url("removingUser", {"userId":user.Id}) }}"><img src="{{url('images')}}/delete-button.png" title="Supprimer"></a></td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+<div id="articleTable" class="pannelTable">
+    <h3> Gestion Articles </h3>
+    <table class="adminTable">
+        <tr>
+            <th>Titre</th>
+            <th>Email</th>
+            <th>Visibilité</th>
+            <th>Suppression</th>
+        </tr>
+
+    {% for article in Model.articles %}
+      	<tr>
+            <td>{{ article.Title }}</td>
+            {% if article.User.get('Email') == NULL %}
+            	<td> L'utilisateur a été supprimé </td>
+            {% else %}
+            	<td>{{ article.User.get('Email') }}</td>
+            {%endif%}
+            <td>{{ article.State.get('Name') }}</td>
+            <td> <a href="{{ url("removingArticle", {"articleId":article.Id}) }}"><img src="{{url('images')}}/delete-button.png" title="Supprimer"></a></td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+<div id="categoryTable" class="pannelTable">
+    <h3> Gestion Catégories </h3>
+    <table class="adminTable">
+        <tr>
+            <th>Nom</th>
+            <th>Couleur</th>
+            <th colspan=2> <a href="{{ url("addCategory") }}"> Ajout </a></td> </th>
+        </tr>
+
+    {% for category in Model.categories %}
+      	<tr>
+            <td>{{ category.Name }}</td>
+            <td>{{ category.Color }}</td>
+            <td> <a href="{{ url("editorCategory", {"categoryId":category.Id}) }}"><img src="{{url('images')}}/edit.png" title="Editer..."></a></td>
+            <td> <a href="{{ url("removingCategory", {"categoryId":category.Id}) }}"><img src="{{url('images')}}/delete-button.png" title="Supprimer"></a></td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+</div>
+{% endblock %}

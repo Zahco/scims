@@ -1,0 +1,21 @@
+{% extends "_Layout.html.twig" %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+{% block content %}
+<div class="formContainer">
+  <h3>Modifier une catégorie</h3>
+  <div class="form">
+    <form method="POST" action="{{ url('editingCategory')}}" >
+    	<input type="hidden" name="Id" value="{{ Model.Id }}">
+      <p> <input type="text" name="Name" value="{{ Model.Name }}"> </p>
+      <p> <input type="text" name="Color" value="{{ Model.Color }}"> </p>
+      <p> <input type="submit" value="Editer"> </p>
+    </form>
+  </div>
+</div>
+{% endblock %}

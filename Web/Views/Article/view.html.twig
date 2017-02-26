@@ -1,0 +1,29 @@
+{% extends "_Layout.html.twig" %}
+
+{% block title %}{{ Model.article.Title }}{% endblock %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+{% block content %}
+<article class="articleView">
+  {% if Model.isOwner %}
+  <div id="article_action">
+    <a href="{{ url('articleEditor', {"articleId": Model.article.Id}) }}" class="button">Editer</a>
+    <a href="{{ url('articleRemove', {"articleId": Model.article.Id}) }}" class="button">Supprimer</a>
+  </div>
+  {% endif %}
+  <h2>{{ Model.article.Title }}</h2>
+  <div id="usertop">
+    <a href="{{ url('articleViewOfUser', {"userId": Model.article.UserId}) }}"  class="button">{{Model.userEditor.Pseudo}}</a>
+    {% if (Model.following == true) %}
+      <a class="followbutton" href="{{ url('unFollowUser', {"userId": Model.article.UserId}) }}"  class="button">Se désabonner</a>
+    {% else %}
+      <a class="followbutton" href="{{ url('followUser', {"userId": Model.article.UserId}) }}"  class="button">S'abonner</a>
+    {% endif %}
+  </div>
+  <div class="articleContent">{{ Model.article.Content|raw }}</div>
+  <div class="articleFooter">{{ Model.article.LastModified }} - {{ Model.article.Author }}</div>
+</article>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "_Layout.html.twig" %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+{% block content %}
+<div class="formContainer">
+  <h3>Ajouter une catégorie</h3>
+  <div class="form">
+    <form method="POST" action="{{ url('addingCategory')}}" >
+      <p> <input type="text" name="Name" placeholder="Nom"> </p>
+      <p> <input type="text" name="Color" placeholder="Couleur"> </p>
+      <p> <input type="submit" value="Créer"> </p>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+<div id="header">
+  <div id="header_search">
+    <div id="logomenu"><a id="linkhome" href="{{ url('home') }}"><img src="{{ url('images') }}/YouMsLogoI.png"></a></div>
+    <form method="POST" action="{{url('articlesByRegex')}}">
+      <input type="text" name="Regex" placeholder="Rechercher...">
+      <input type="image" src="{{ url('images') }}/search.png" title="Chercher">
+    </form>
+  </div>
+  <div id="header_action">
+    {% for item in Model %}
+      <div class="header_button"><a href="{{ item.url }}"><img title="{{ item.text }}" src="{{ url('images') }}/{{ item.img }}"></a></div>
+    {% endfor %}
+  </div>
+</div>

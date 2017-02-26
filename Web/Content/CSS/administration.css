@@ -1,0 +1,56 @@
+#adminTables {
+  overflow: auto;
+  height: 90vh;
+  font-size: 0px;
+
+}
+
+div.pannelTable {
+  font-size: 16px;
+  display: inline-block;
+  padding: 0.5%;
+  overflow-y: auto;
+  vertical-align: top;
+}
+
+div#userTable, div#categoryTable {
+  width: 23.5%;
+  max-width: 23.5%;
+}
+div#articleTable {
+  width: 50%;
+}
+table.adminTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: solid black 1px;
+}
+
+.adminTable th {
+  text-align: left;
+  background-color: black;
+  color: white;
+}
+.adminTable th a {
+  color: white;
+}
+.adminTable a {
+  text-decoration: none;
+  color: #666;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.adminTable a:hover {
+  text-decoration: underline;
+}
+
+.adminTable tr:nth-child(2n+1) {
+  background-color: #acabdb;
+  padding: 0px 3px;
+}
+
+.adminTable a img {
+  width: 20px;
+}

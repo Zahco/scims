@@ -1,0 +1,25 @@
+{% extends "_Layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Article{% endblock %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+{% block content %}
+<div class="formContainer">
+  <h3>Créer un article</h3>
+  <div class="form">
+    <form method="post" action="{{ url('articleCreating') }}">
+      <p><input type="text" name="Title" placeholder="Titre" required></p>
+      <p><input type="text" name="Author" placeholder="Auteur"></p>
+      <p><select name="CategoryId">
+        {% for category in Model %}
+        <option value="{{ category.Id }}">{{ category.Name }}</option>
+        {% endfor %}
+      </select></p>
+      <p><input type="submit" value="Créer"></p>
+    </form>
+  </div>
+</div>
+{% endblock %}

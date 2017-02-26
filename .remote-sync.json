@@ -1,0 +1,16 @@
+{
+  "uploadOnSave": true,
+  "useAtomicWrites": false,
+  "deleteLocal": false,
+  "hostname": "www.geoffreyspaur.fr",
+  "target": "/var/www/scims",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "scims",
+  "watch": [],
+  "transport": "scp",
+  "keyfile": "/home/geoffrey/.ssh/id_rsa",
+  "port": "4589"
+}

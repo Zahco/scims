@@ -1,0 +1,83 @@
+{% extends "_Layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Edition{% endblock %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+{% block content %}
+<div class="form">
+  <form id="articleEditor" method="post" action="{{ url('articleEditing') }}">
+    <input type="hidden" id="whereToConvertLatex" value="{{ url('latexConverter') }}">
+    <input type="hidden" id="whereToKillTag" value="{{ url('tagKiller') }}">
+    <input type="hidden" id="Id" name="Id" value="{{ Model.article.Id }}">
+    <div id="articlefirstline" class="articleinputs">
+      <div id="tagsDiv">
+        <ul id="tagsList">
+          {% for tags in Model.article.Tags | split(';') %}
+            {% if tags != '' %}
+              <li class="tag">{{ tags }}<span class="tagKill closeItemTag">[X]</span></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        <input type="text" id="articleTags" name="Tags" placeholder="Insérer un tag"/>
+      </div>
+      <p><input type="text" id="articleTitle" name="Title" value="{{ Model.article.Title }}" placeholder="Titre" required></p>
+      <label class="switch" title="Public / Privé">
+        {% if Model.article.IsPublic %}
+          <input type="checkbox" id="articleState" name="State" checked="true">
+        {% else %}
+          <input type="checkbox" id="articleState" name="State">
+        {% endif %}
+        <div class="slider round"></div>
+      </label>
+    </div>
+    <div id="articlesecondline" class="articleinputs">
+      <p><input type="text" id="articleAuthor" name="Author" value="{{ Model.article.Author }}" placeholder="Auteur"></p>
+      <p><select name="CategoryId" id="articleCategoryId">
+        {% for category in Model.categories %}
+          {% if Model.article.CategoryId == category.Id %}
+            <option selected="true" value="{{ category.Id }}">{{ category.Name }}</option>
+          {% else %}
+            <option value="{{ category.Id }}">{{ category.Name }}</option>
+          {% endif %}
+        {% endfor %}
+      </select></p>
+      <p><input class="show" id="submit" type="submit" value="Sauvegarder"><img src="{{ url('images') }}/loading.gif" class="hide" id="gif"></p>
+    </div>
+    <div id="editor">
+      <div id="contenteditor" name="Content" placeholder="Content" contenteditable="true"> {{ Model.article.Content | raw }}
+      </div>
+      <div id="articleformat" class="inline">
+        <input type="image" title="Gras" style="font-weight:bold;" onclick="commande('bold');" src="{{ url('images') }}/bold.png"/>
+        <input type="image" title="Italic" style="font-style:italic;" onclick="commande('italic');" src="{{ url('images') }}/italic.png"/>
+        <input type="image" title="Souligner" style="text-decoration:underline;" onclick="commande('underline');" src="{{ url('images') }}/underline.png"/>
+        <input type="image" title="Lien" onclick="makeLink();" src="{{ url('images') }}/link.png"/>
+        <input type="image" title="Aligner à gauche" onclick="commande('justifyLeft');" src="{{ url('images') }}/left-alignment.png"/>
+        <input type="image" title="Aligner à droite" onclick="commande('justifyRight');" src="{{ url('images') }}/right-alignment.png"/>
+        <input type="image" title="Aligner au centre" onclick="commande('justifyCenter');" src="{{ url('images') }}/center-alignment.png"/>
+        <input type="image" title="Justifier" onclick="commande('justifyFull');" src="{{ url('images') }}/justify-paragraph.png" />
+        <input type="image" title="Baisser la police" onclick="commande('decreaseFontSize');" src="{{ url('images') }}/lowercase.png"/>
+        <input type="image" title="Augmenter la police" onclick="commande('increaseFontSize');" src="{{ url('images') }}/uppercase.png"/>
+        <input type="image" title="Précédent" onclick="commande('undo');" src="{{ url('images') }}/undo-arrow.png"/>
+        <input type="image" title="Suivant" onclick="commande('redo');" src="{{ url('images') }}/redo-arrow.png"/>
+        <input type="image" title="Ajouter une section" onclick="insertSection();" src="{{ url('images') }}/subsection.png"/>
+        <input type="image" title="Placer le sommaire" onclick="insertSummary();" src="{{ url('images') }}/list.png"/>
+        <input type="image" title="Ajouter une formule Latex" onclick="insertLatex();" src="{{ url('images') }}/formula.png"/>
+      </div>
+    </div>
+  </form>
+</div>
+<script src="{{ url('js') }}/commande.js"></script>
+<script src="{{ url('js') }}/article.js"></script>
+
+<script>
+  classChange('sectionSub','disabled');
+  classChange('disabled','sectionSub');
+  setAllUpdateLatex();
+  setTagKillers();
+  setDivKillers();
+</script>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+.logout {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.logout a {
+  color: black;
+  text-decoration: none;
+  padding: 1%;
+  border: solid black 1px;
+}

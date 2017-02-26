@@ -1,0 +1,61 @@
+#article_action {
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+#article_action a.button {
+  padding: 15px;
+  color: black;
+  border: solid black 1px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+#article_action a.button:hover {
+  color: white;
+  background-color: var(--tumblr-color);
+}
+
+#article_action p {
+  margin-bottom: 25px;
+}
+
+article {
+  text-align: justify;
+}
+.articleView .latexCode {
+  display: none;
+}
+.articleView {
+  padding: 20px 8% 0px 8%;
+  margin: auto;
+  overflow: auto;
+  height: calc(90vh - 20px);
+}
+.articleFooter {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+#usertop {
+  text-align: right;
+}
+#usertop a:not(.followbutton) {
+  color: black;
+}
+#usertop a {
+  text-decoration: none;
+  padding: 1%;
+}
+#usertop a:hover:not(.followbutton) {
+  text-decoration: underline;
+}
+a.followbutton {
+  background-color: var(--tumblr-color);
+  color: white;
+}
+.articleContent section {
+  padding-left: 8px;
+}
+.articleContent {
+  padding-top: 20px;
+}

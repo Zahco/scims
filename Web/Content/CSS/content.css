@@ -1,0 +1,96 @@
+#content {
+  font-size: 0px;
+  overflow: auto;
+  height: 85vh;
+  color: black;
+  transition: color 0.5s ease-in-out;
+  background-color: var(--background-color);
+  position: absolute;
+  top: 0vh;
+  width: 100%;
+  padding-top: 5vh;
+  padding-bottom: 1%;
+}
+
+#content > * {
+  font-size: 16px;
+}
+
+#content article {
+  width: 30%;
+  height: 30%;
+  padding: 1%;
+  display: inline-block;
+  font-size: 16px;
+  margin: 1% 0% 0% 1%;
+  vertical-align: top;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: none;
+  overflow: hidden;
+  position: relative;
+}
+#content article:last-of-type {
+  margin-bottom: 2%;
+}
+#withoutCategories {
+  top: 0px;
+  font-size: 0px;
+  overflow: auto;
+  height: 90vh;
+  width: 100%;
+  z-index: 100;
+  position: absolute;
+}
+#content .subview {
+  font-size: 10px;
+}
+
+div#content:hover {
+  color: #555;
+  transition: color 0.5s ease-in-out;
+}
+#content article:hover {
+  color: black;
+  transition-property: color, box-shadow, overflow-y;
+  transition: 0.5s ease-in-out;
+  box-shadow: inset 0px -160px 160px -160px #777;
+}
+
+.inline {
+  display: inline-block;
+}
+
+#content article#addArticle {
+  background-color: var(--background-color);
+  text-align: center;
+}
+#content article#addArticle:hover {
+  box-shadow: none;
+}
+#content article#addArticle img {
+  height: 100%;
+}
+
+.colorCategory {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 1.5%;
+}
+
+#content article .lookup img {
+  height: 40px;
+
+}
+#content article .lookup {
+  position: absolute;
+  top: 1%;
+  right: 2%;
+}
+
+p.emptysearch {
+  margin-top: 10vh;
+  text-align: center;
+}

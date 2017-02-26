@@ -1,0 +1,14 @@
+<div id="leftbar">
+  <ul id="categories">
+    {% for category in Model %}
+      <a href="{{url('articlesByCategory', {'categoryId':category.Id})}}">
+        {% if category.Color != null %}
+          <li style="background-color:{{ category.Color }};">{{ category.Name }}</li>
+        {% else %}
+          <li>{{ category.Name }}</li>
+        {% endif %}
+        </a>
+    {% endfor %}
+  </ul>
+  <div id="moreCategories"><a href="{{ url('allCategories') }}" title="Afficher plus de catégories"><img src="{{ url('images') }}/more.png"></a></div>
+</div>

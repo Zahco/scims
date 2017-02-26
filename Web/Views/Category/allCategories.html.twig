@@ -1,0 +1,18 @@
+{% extends "_Layout.html.twig" %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+
+{% block content %}
+  {% block topBar %}
+    {{ render(controller("\\Web\\Controllers\\Category::categories")) }}
+  {% endblock %}
+  <div id="content">
+    {% for category in Model %}
+      <div class="linkCategory" style="background-color:{{ category.Color }};"><a href="{{ url('articlesByCategory', {'categoryId': category.Id}) }}">{{ category.Name }}</a></div>
+    {% endfor %}
+  </div>
+{% endblock %}
+

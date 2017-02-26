@@ -1,0 +1,26 @@
+
+{% extends "_LayoutArticles.html.twig" %}
+
+
+{% block topBar %}
+  <div id="leftbar">
+  </div>
+{% endblock %}
+
+{% block articles %}
+<div id="withoutCategories">
+  <article id="addArticle">
+    <a href="{{ url('articleCreate') }}" title="Ajouter un article"><img src="{{ url('images') }}/addFileI.png"></a>
+  </article>
+  {% for article in Model %}
+    <article article-id="{{ article.Id }}">
+      <div class="colorCategory" style="background-color:{{ article.Category.get('Color') }};"></div>
+      <p class="title">{{ article.Title }}</p>
+      <div class="lookup"><a href="{{ url('articleView', {'Id':article.Id}) }}" title="Voir l'article"><img src="{{ url('images') }}/eye.png"></a></div>
+      <section class="subview">
+        {{ article.Content|raw }}
+      </section>
+    </article>
+  {% endfor %}
+</div>
+{% endblock %}

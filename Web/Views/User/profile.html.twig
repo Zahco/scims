@@ -1,0 +1,25 @@
+{% extends "_Layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Profile{% endblock %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+{% block content %}
+<div class="formContainer">
+  <h3>Profile</h3>
+  <div class="form">
+    <form method="post" action="{{ url('profileUpdate') }}">
+      <p><input type="text" name="Pseudo" placeholder="Pseudo" value="{{ Model.Pseudo }}"></p>
+      <p><input type="email" name="Email" placeholder="Email" value="{{ Model.Email }}"></p>
+      <p><input type="password" name="Password" placeholder="Password"></p>
+      <p><input type="submit" value="Mettre à jour mes données"></p>
+    </form>
+  </div>
+  <div class="logout">
+    <p><a href="{{ url('logOut') }}" title="Sign Out">Sign Out</a></p>
+  </div>
+</div>
+<script src="{{url('js')}}/ValidateMail.js"></script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "_Layout.html.twig" %}
+
+{% block title %}{{ Model.Title }}{% endblock %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+{% block content %}
+<div class="formContainer">
+  <div id="article_action">
+    <p>Êtes vous sûr de vouloir supprimer l'article: {{Model.Title}} ?</p>
+    <a href="{{ url('articleView', {"Id": Model.Id}) }}" class="button">Annuler</a>
+    <a href="{{ url('articleRemoving', {"articleId": Model.Id}) }}" class="button">Supprimer</a>
+  </div>
+</div>
+{% endblock %}

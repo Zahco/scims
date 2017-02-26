@@ -1,0 +1,23 @@
+{% extends "_Layout.html.twig" %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+{% block content %}
+  {% block topBar %}
+    {{ render(controller("\\Web\\Controllers\\Category::categories")) }}
+  {% endblock %}
+  <div id="content">
+    {% block articles %}
+    {% endblock %}
+    <script>
+      var articles = document.getElementsByTagName("article");
+      for (var i = 0; i < articles.length; ++i) {
+        articles[i].onclick = function() {
+          window.location = "{{ url('article') }}" + this.getAttribute("article-id");
+        }
+      }
+    </script>
+  </div>
+{% endblock %}
+

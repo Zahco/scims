@@ -1,0 +1,18 @@
+.linkCategory {
+  font-size: 20px;
+  width: 30%;
+  display: inline-block;
+  margin: 2.5% 0% 0% 2.5%;
+}
+.linkCategory:hover {
+  opacity: 0.5 !important;
+}
+
+.linkCategory a {
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  padding: 10% 0%;
+  display: inline-block;
+}

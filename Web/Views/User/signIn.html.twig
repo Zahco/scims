@@ -1,0 +1,37 @@
+{% extends "_Layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Connexion{% endblock %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+{% block content %}
+<div id="signIn">
+  <div class="inline">
+    <h3>Connexion</h3>
+    <div class="form">
+      <form method="post" action="{{ url('logingOn') }}">
+        <p><input type="text" name="Email" placeholder="Email"></p>
+        <p><input type="password" name="Password" placeholder="Password"></p>
+        <p><input type="submit" value="Se connecter"></p>
+      </form>
+    </div>
+  </div>
+  <div id="separation" class="inline">
+
+  </div>
+  <div class="inline">
+    <h3>Inscription</h3>
+    <div class="form">
+      <form method="post" action="{{ url('registering') }}">
+        <p><input type="text" name="Pseudo" placeholder="Pseudo" required></p>
+        <p><input id="mail" type="email" name="Email" placeholder="Email" required></p>
+        <p><input type="password" name="Password" placeholder="Password" required></p>
+        <p><input type="submit" value="S'inscrire"></p>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="{{url('js')}}/ValidateMail.js"></script>
+{% endblock %}

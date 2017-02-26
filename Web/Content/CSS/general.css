@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Roboto";
+    src: url('../Font/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    src: url('../Font/Roboto-Italic.ttf');
+}
+@font-face {
+    font-family: "Roboto";
+    font-weight: bold;
+    src: url('../Font/Roboto-Bold.ttf');
+}
+
+html {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+body {
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.show {
+  display: inline;
+}
+
+.hide {
+  display: none;
+}
+.formContainer {
+  padding-top: 2.5vh;
+  text-align: center;
+}

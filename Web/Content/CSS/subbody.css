@@ -1,0 +1,11 @@
+#subbody {
+  position: relative;
+  margin-top: var(--subbody-margin-top);
+}
+
+#content {
+  color: black;
+  background-color: white;
+}
+#content > * {
+}

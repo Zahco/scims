@@ -1,0 +1,60 @@
+#header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--tumblr-color);
+  z-index: 50;
+}
+
+/* SEARCH */
+#header_search {
+  position: absolute;
+  top: 50%;
+  transform: translate(0px, -50%);
+  width: auto;
+  padding-left: var(--h-button-padding);
+}
+#header_search > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+#header input[type='text'] {
+  margin: 0px;
+  padding: 1vh;
+  font-size: 2vh;
+  border: solid black 1px;
+  width: 30vw;
+}
+
+/* ACTION */
+#header_action {
+  float: right;
+}
+
+#header_action div {
+  display: inline-block;
+  padding: 2.5vh;
+  height: 5vh;
+  vertical-align: middle;
+  cursor: pointer;
+  color: white;
+}
+#header_action div:hover {
+  background-color: #6d7590;
+}
+#logomenu {
+  height: 5vh;
+  display: inline-block;
+  margin: 0px;
+  margin-right: var(--h-button-padding);
+}
+#header img {
+  height: 5vh;
+}
+
+#header input[type='image'] {
+  height: 4vh;
+  vertical-align: middle;
+}

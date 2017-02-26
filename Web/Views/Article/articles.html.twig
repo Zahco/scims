@@ -1,0 +1,21 @@
+
+{% extends "_LayoutArticles.html.twig" %}
+
+
+
+{% block articles %}
+{% if Model == null %}
+  <p class="emptysearch">Aucun article n'a été trouvé.</p>
+{% endif %}
+{% for article in Model %}
+  <article article-id="{{ article.Id }}" >
+    <div class="colorCategory" style="background-color:{{ article.Category.get('Color') }};"></div>
+    <p class="title">{{ article.Title }}</p>
+    <div class="lookup"><a href="{{ url('articleView', {'Id':article.Id}) }}" title="Voir l'article"><img src="{{ url('images') }}/eye.png"></a></div>
+    <section class="subview">
+      {{ article.Content|raw }}
+    </section>
+  </article>
+{% endfor %}
+{% endblock %}
+

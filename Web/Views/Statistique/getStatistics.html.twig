@@ -1,0 +1,30 @@
+{% extends "_Layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Statistiques{% endblock %}
+
+{% block menu %}
+  {{ render(controller("\\Web\\Controllers\\Menu::menu")) }}
+{% endblock %}
+
+{% block content %}
+<div id="adminTables">
+<div class="pannelTable">
+  <table class="adminTable">
+    <tr><td>Nombre d'utilisateur</td><td>{{ Model.nbUsers }}</td></tr>
+    <tr><td>Nombre d'utilisateur sans aucun articles</td><td>{{ Model.nbUsersArticleLess }}</td></tr>
+    <tr><td>Nombre d'article</td><td>{{ Model.nbArticles }}</td></tr>
+    <tr><td>Nombre d'article privé</td><td>{{ Model.nbArticlesPr }}</td></tr>
+    <tr><td>Nombre d'article public</td><td>{{ Model.nbArticlesPu }}</td></tr>
+    <tr><td>Nombre d'article par utilisateur en moyenne</td><td>{{ Model.moyenne }}</td></tr>
+  </table>
+</div>
+<div class="pannelTable">
+	<table id="articletabview" class="adminTable">
+  	<tr> <th>Article</th> <th>Nombre de vue</th> <th>Visibilité</th></tr>
+  	{% for article in Model.articles %}
+  	  <tr> <td> <a href="{{ url("articleView", {'Id':article.Id}) }}">{{article.Title}}</a> </td> <td> {{article.Vues}} </td> <td> {{article.State.get('Name')}}</td></tr>
+  	{% endfor %}
+	</table>
+</div>
+</div>
+{% endblock %}

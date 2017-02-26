@@ -1,0 +1,61 @@
+#leftbar {
+  position: fixed;
+  top: 10%;
+  left: 0px;
+  width: 100%;
+  border-right: solid black 1px;
+  height: var(--categories-height);
+  z-index: 50;
+  font-size: 0px;
+}
+
+#categories {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  height: 100%;
+  white-space:nowrap;
+}
+
+#categories li {
+  margin: 0px;
+  text-align: center;
+  list-style: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: var(--categories-li-height);
+  height: var(--categories-li-height);
+  line-height: -moz-block-height;
+  line-height: -webkit-block-height;
+  padding: var(--categories-li-padding-height) 5%;
+}
+
+#categories a {
+  color: white;
+}
+#categories a:hover {
+  opacity: 0.5 !important;
+}
+
+#moreCategories {
+  position: absolute;
+  right: 0px;
+  height: 100%;
+  background-color: white;
+  font-size: 16px;
+  width: 5%;
+  top: 0px;
+}
+
+#moreCategories a {
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: var(--tumblr-color);
+}
+#moreCategories a img {
+  height: 100%;
+}

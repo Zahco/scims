@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}YouMS{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url('css') }}/include.css">
+  <link rel="icon" type="image/png" href="{{ url('images') }}/YouMSLogo.png" />
+
+  <script src="{{url('js')}}/ajax.js"></script>
+</head>
+
+<body>
+  {% block menu %}
+  {% endblock %}
+  <div id="subbody">
+    {% block content %}
+    {% endblock %}
+  </div>
+  
+</body>
+</html>
+
